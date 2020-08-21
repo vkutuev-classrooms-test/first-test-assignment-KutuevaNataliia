@@ -11,26 +11,6 @@
       "points": null
     },
     {
-      "name": "Test2",
-      "setup": "",
-      "run": "false",
-      "input": "",
-      "output": "",
-      "comparison": "included",
-      "timeout": 10,
-      "points": null
-    },
-    {
-      "name": "Test3",
-      "setup": "",
-      "run": "make test",
-      "input": "",
-      "output": "",
-      "comparison": "included",
-      "timeout": 10,
-      "points": null
-    },
-    {
       "name": "Test4",
       "setup": "",
       "run": "true",
