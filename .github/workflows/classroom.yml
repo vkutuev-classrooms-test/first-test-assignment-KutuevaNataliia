@@ -1,11 +1,30 @@
-    name: GitHub Classroom Workflow
+name: Autotests
 
-    on: [push]
+# Controls when the action will run. Triggers the workflow on pull request
+# events but only for the master branch
+on:
+  pull_request:
+    branches: [ master ]
 
-    jobs:
-      build:
-        name: Autograding
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v2
-          - uses: education/autograding@v1
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    runs-on: ubuntu-latest
+    container: vladimirkutuev/cmocka:latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Run basic tests
+        run: |
+          cd $(git diff --name-only HEAD~1 HEAD) &&
+          mkdir -p basic-test &&
+          cd ./basic-test &&
+          cmake .. &&
+          make &&
+          ./test &&
+          cd .. &&
+          rm -r ./basic-test
+
