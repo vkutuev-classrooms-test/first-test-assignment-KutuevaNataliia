@@ -23,7 +23,5 @@ jobs:
           cd ./basic-test &&
           cmake .. &&
           make &&
-          ./test &&
-          cd .. &&
-          rm -r ./basic-test
+          ctest -V
 
