@@ -1,8 +1,7 @@
 name: Autotests
 
-# Controls when the action will run. Triggers the workflow on pull request
-# events but only for the master branch
 on:
+  push:
   pull_request:
     branches: [ master ]
 
@@ -18,10 +17,5 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: Run basic tests
-        run: |
-          mkdir -p basic-test &&
-          cd ./basic-test &&
-          cmake .. &&
-          make &&
-          ctest -V
+        run: ./run_tests.sh
 
