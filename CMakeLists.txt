@@ -8,7 +8,7 @@ add_subdirectory(src)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/Modules")
 
 # cmocka
-option(ENABLE_TESTS "Perform unit tests after build" ON)
+option(ENABLE_TESTS "Perform unit tests after build" OFF)
 if (ENABLE_TESTS)
     find_package(CMocka CONFIG REQUIRED)
     include(AddCMockaTest)
