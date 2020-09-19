@@ -17,5 +17,5 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: Run basic tests
-        run: ./run_tests.sh
+        run: ./scripts/run_tests.sh
 
